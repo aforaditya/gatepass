@@ -1,0 +1,72 @@
+*{
+    margin : 0;
+    padding : 0;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height : 100vh;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+    height : 50%;
+    width : 80%;
+    margin-left: 7%;
+    font-family: sans-serif;
+}
+
+form  *  {
+    margin: 30px;
+}
+
+form h3{
+    font-size: 72px;
+
+}
+
+form p{
+    font-size: 36px;
+}
+
+form input{
+    padding: 30px;
+    padding-left: 40px;
+    font-size: 40px;
+    background-color: #EDEDED;
+    border: none;
+    border-radius: 30px;
+
+}
+
+form button{
+    font-size: 36px;
+    padding: 35px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    width: 30%;
+}
+
+a{
+    font-size: 42px;;
+}
+
+.message{
+    background-color: red;
+    color: white;
+    width: fill;
+    font-size: 40px;
+    padding: 20px;
+    font-family: sans-serif;
+}
+
+a{
+    text-decoration: none;
+}

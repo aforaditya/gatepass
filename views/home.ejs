@@ -1,0 +1,131 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=0">
+     <link rel="stylesheet" href="../styles/home.css">
+     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300&display=swap" rel="stylesheet">
+     <title>GatePass - Home</title>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="profile">
+
+            <img src="https://english.spbstu.ru/upload/medialibrary/7ba/47.jpg" alt="CU Logo">
+
+            <label> <%= name %>  </label>
+
+            <a class="button new-request-btn" href="/newrequest">Add new request</a>
+        </div>
+
+
+
+        <div class="cardbox">
+          
+            <% if(passlist.length == 0)  { %> 
+            <div class="no-passes-box">
+                <img src="https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/zoom-dynamic-premium.png" alt="">
+                 <h3> You do not have any pending requests currently </h3>
+            </div>
+            <% } %> 
+
+             <% if(message) {%> 
+                <a href="/">
+
+                    <div class="card message-box">
+                  <div class="card-info message">
+                    <p class="status-message">Your request for gate pass has been recieved. We will update its status as 
+                        soon as the warden reviews it
+                    </p>
+                    <button class="msg-ok-btn">Okay</button>
+                  </div>
+                        
+                         
+                      </div>
+
+                </a>
+                <% } %> 
+         
+
+           <%  for(var i=passlist.length - 1 ; i>=0 ; i--){   %>
+
+            <% if(passlist[i].status=='approved') {  %> 
+            <a href="/passqr?passid=<%= passlist[i]._id %>">
+                <% } else { %> 
+                    <a href="#">
+                    <% } %> 
+
+
+
+                <div class="card">
+
+                    <div class="card-info">
+    
+                       
+    
+                        <label class="date">  <%= passlist[i].date_label %></label>
+                        <div class="location-row">
+                            <label class="material-icons-outlined" style="font-size :48px;">place</label>
+                            <label class="location"> <%=  passlist[i].location %>
+                            </label>
+                        </div>
+         
+    
+                    <div class="timerow">
+    
+                        <div class="time">
+                            <label class="time-text">  <%=  passlist[i].outtime_label %></label>
+                            <label class="time-ampm"> <%= passlist[i].outtime_ampm  %> </label>
+                        </div>
+    
+                        <div class="time">
+                            <label class="time-text"> <%= passlist[i].intime_label  %> </label>
+                            <label class="time-ampm"> <%=  passlist[i].intime_ampm %> </label>
+                        </div>
+    
+                    </div>
+    
+                    <label class="passid" style="display:none;">heyyyyy</label>
+    
+                    </div>
+    
+                    <div class="status"  style="background-color: <%=  passlist[i].status_color %> ">
+                        <label class="status-text"> <%= passlist[i].status_message %> </label>
+                        <% if(passlist[i].status=='approved') {%> 
+                        <label class="material-icons" style="font-size: 60px;">qr_code_2</label>
+                        <% } %> 
+                    </div>
+                </div>
+
+                <% if(passlist[i].status=='approved') {  %> 
+            </a>
+
+            <% } else { %> 
+            </a>
+                <% } %> 
+            
+
+         <% }  %>
+
+        </div>
+
+    <div class="logout">
+
+        <form action="/logout" method="post" class="logout">
+
+            <span class="material-icons-outlined" style="font-size: 48px;">
+                logout
+                </span>
+            <input type="submit" value="Log out"></input>
+        </form>
+        
+    </div>
+
+
+
+    </div>
+</body>
+</html>

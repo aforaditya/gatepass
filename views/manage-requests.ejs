@@ -1,0 +1,243 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/manage-requests.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <title>Manage Pass Requests - GatePass</title>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand">Chandigarh University - <%= group %> </a>
+      <div>
+      <a > <button type="button" id="edit-user" class="btn btn-outline-primary">Edit User</button></a>
+      <a href="/warden/register"> <button type="button" class="btn btn-outline-primary">Add User</button></a>
+     
+      </div>
+      
+    </div>
+  </nav>
+
+
+
+  <div class="box">
+
+
+
+    <ul class="nav nav-tabs" style="margin: 10px;">
+      <li class="nav-item">
+        <a class="nav-link <%= (filter=='requested') ? 'active' : 'dummy' %> " aria-current="page"
+          href="/warden?filter=requested">Pending </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link <%= (filter=='approved') ? 'active' : 'dummy' %>"
+          href="/warden?filter=approved">Approved</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link <%= (filter=='rejected') ? 'active' : 'dummy' %>"
+          href="/warden?filter=rejected">Rejected</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link <%= (filter=='all') ? 'active' : 'dummy' %>" href="/warden?filter=all">All Requests</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link <%= (filter=='profile') ? 'active' : 'dummy' %>" href="/warden?filter=profile">Profile Picture Verification</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link <%= (filter=='late_entry') ? 'active' : 'dummy' %>" href="/warden?filter=late_entry">Late Entry</a>
+      </li>
+    </ul>
+
+
+
+    <div class="container">
+
+     
+           
+      <% if(!(passes.length)  && !(profiles.length)) {%> 
+        <h5>No requests found here</h5>
+        <% } %> 
+       
+      
+
+
+
+        <% for(var i=0 ; i<passes.length ; i++){ %>
+          <div class="card" style="width: 18rem;">
+            <div class="img-container">
+              <img   src="https://res.cloudinary.com/mydatabase112233/image/upload/<%=passes[i].image%>" class="card-img-top" alt="...">
+            </div>
+             <div class="card-body">
+              <h5 class="card-title"><%= passes[i].name %></h5>
+              <h6 class="card-subtitle mb-2 text-muted">9711566171</h6>
+               </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Room : <%= passes[i].room %></li>
+              <li class="list-group-item">Place : <%= passes[i].location %></li>
+              <li class="list-group-item">Purpose : <%= passes[i].purpose %> </li>
+              <li class="list-group-item">OUTtime : <%=  new Date(passes[i].outtime).toLocaleString("en-US", {timeZone: "Asia/Kolkata"})  %> </li>
+              <li class="list-group-item">INtime : <%=  new Date(passes[i].intime).toLocaleString("en-US", {timeZone: "Asia/Kolkata"})  %></li>
+              <li class="list-group-item">Hours : <%= Math.ceil(Math.abs(new Date(passes[i].outtime) - new Date(passes[i].intime)) / 36e5) %> </li>
+
+              <% if(filter=='late_entry' || filter=='all') { %> 
+              <li class="list-group-item">Actual OUTtime : <%=  new Date(passes[i].actual_out_time).toLocaleString("en-US", {timeZone: "Asia/Kolkata"})  %></li>
+              <li class="list-group-item">Actual INtime : <%=  new Date(passes[i].actual_in_time).toLocaleString("en-US", {timeZone: "Asia/Kolkata"})  %></li>
+              <% } %> 
+            </ul>
+            <div class="card-body">
+             <div class="control" id="<%= passes[i]._id %>">
+              <% if( !(filter=='late_entry') ) { %> 
+                  <button class="btn btn-danger"  value="Reject" name="decision">Reject</button>
+                  <button class="btn btn-success"  value="Accept" name="decision">Accept</button>
+               <% } else { %> 
+                <button class="btn btn-success"  value="Checked" name="decision">Mark as Checked</button>
+               <% } %> 
+                </div>
+            </div>
+          </div>
+          <% } %> 
+
+
+
+          <% for(var i=0 ; i<profiles.length ; i++){ %>
+                
+            <div class="card" style="width: 18rem;">
+              <div class="img-container">
+                <img   src="https://res.cloudinary.com/mydatabase112233/image/upload/<%=profiles[i].image%>" class="card-img-top" alt="...">
+              </div>
+               <div class="card-body">
+                <h5 class="card-title"><%= profiles[i].name %></h5>
+                 </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Room : <%= profiles[i].room %></li>
+              </ul>
+              <div class="card-body">
+               <div class="control" id="<%= profiles[i].username %>">
+  
+                    <button class="btn btn-danger"  value="RejectProfile" name="decision">Reject</button>
+                    <button class="btn btn-success"  value="AcceptProfile" name="decision">Accept</button>
+  
+                  </div>
+              </div>
+            </div>
+
+            <% } %> 
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    </div>
+
+    
+
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+      <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <strong class="me-auto">Notification</strong>
+          <small>Just now</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          Pass Updated Successfully
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <script>
+
+
+      var l = document.getElementsByName('decision')
+
+      for (var i = 0; i < l.length; i++)
+        l[i].onclick = myFunction
+
+      function myFunction() {
+
+        
+        this.disabled = 'true'
+        this.innerText = 'Please wait'
+        // Toast 
+
+
+        var toastLiveExample = document.getElementById('liveToast')
+
+        // Call `fetch()`, passing in the URL.
+        fetch('decision?passid=' + this.parentElement.id + '&decision=' + this.value ,{cache: "no-store"})
+          // fetch() returns a promise. When we have received a response from the server,
+          // the promise's `then()` handler is called with the response.
+          .then(response => {
+            // Our handler throws an error if the request did not succeed.
+            if (!response.ok) {
+              throw new Error(`HTTP error: ${response.status}`);
+            }
+            // Otherwise (if the response succeeded), our handler fetches the response
+            // as text by calling response.text(), and immediately returns the promise
+            // returned by `response.text()`.
+            return response.text();
+          })
+          // When response.text() has succeeded, the `then()` handler is called with
+          // the text, and we copy it into the `poemDisplay` box.
+          .then((text) => {
+            var ob = JSON.parse(text)
+            if (ob.code == 1) {
+              var ele = document.getElementById(ob.id)
+              ele.parentNode.parentNode.parentNode.removeChild(ele.parentNode.parentNode)
+              var toast = new bootstrap.Toast(toastLiveExample)
+              toast.show()
+            } else {
+              alert('Error occured')
+            }
+
+          })
+          // Catch any errors that might happen, and display a message
+          // in the `poemDisplay` box.
+          .catch();
+
+
+      }
+
+     var edit = document.getElementById('edit-user')
+     edit.addEventListener('click' , ()=>{
+       var msg = prompt('Please enter UID')
+
+       if(msg){
+            window.location.replace('/warden/editUser?uid='+msg.trim())
+       }
+     })
+
+
+
+    </script>
+
+</body>
+
+</html>

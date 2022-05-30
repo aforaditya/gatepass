@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=0">
+    <link rel="stylesheet" href="../styles/request.css">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+    <title>GatePass - New Request</title>
+</head>
+<body>
+    
+    <div class="back-bar">
+        <div class="circle">
+            <a class="material-icons-outlined" style="font-size: 48px;" href="/home">
+                arrow_back
+            </a>
+                
+        </div>
+    </div>
+
+    
+    <div class="title">
+        <label>New Request</label>
+    </div>
+
+    <% if(error){ %> 
+    <div class="error">
+        <p id="error-text"><%= error %> </p>
+    </div>
+    <% } %> 
+
+    <form action="/addpass" method="post">
+
+        <div class="form">
+
+            <div class="basic-info card">
+                <p>Basic info</p>
+                <input type="text" placeholder="Enter location" name="location" autocomplete="off">
+                <input type="text" placeholder="Enter purpose of visit" name="purpose" autocomplete="off">
+            </div>
+    
+            <div class="timing card">
+                <p>Select Timings</p>
+                <label for="outtime">Select OUT Time</label>
+                <input min="<%= date_now %>" type="datetime-local" id="outtime" name="outtime"></input>
+                <label for="intime">Select IN Time</label>
+                <input min="<%= date_now %>" type="datetime-local" id="intime" name="intime"></input>
+            </div>
+    
+            <div class="submit-box">
+                <button>Submit Request</button>
+            </div>
+    
+            
+        </div>
+
+    </form>
+    
+    
+    
+</body>
+</html>

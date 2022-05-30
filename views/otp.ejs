@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=0">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/otp.css" />
+    <title>GatePass - OTP</title>
+</head>
+<body>
+    <div class="container">
+
+        <div class="back-bar">
+            <div class="circle">
+                <a class="material-icons-outlined" style="font-size: 42px;" href="/home">
+                    arrow_back
+                </a>
+                    
+            </div>
+        </div>
+
+        
+
+            <form action="/otp-verification" method="post">
+            <img src="https://3dicons.sgp1.cdn.digitaloceanspaces.com/v1/dynamic/premium/key-dynamic-premium.png" alt="">
+            <h3>Parent Verification </h3>
+            
+            <p>An OTP has been sent to your parent's mobile number</p>
+           
+            <input type="number" placeholder="Enter OTP"  onkeyup="changed(this.value)" name="otp">
+            <% if(message) { %> 
+            <label for="">Wrong OTP entered</label>
+            <% } %> 
+            <input type="hidden" name="passid" value="<%= pass._id %>">
+            <button type="submit">Verify</button>
+            </form>
+            
+        
+
+
+
+    </div>
+    
+<script>
+
+   
+    var btn = document.getElementsByTagName('button')[0]
+    function changed(value){
+
+       
+        if(value.length == 4){
+              btn.style.display = 'block'
+        }
+        else{
+              btn.style.display = 'none'
+        }
+        
+    }
+</script>
+
+
+</body>
+</html>

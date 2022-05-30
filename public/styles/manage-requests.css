@@ -1,0 +1,128 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    display: flex;
+    padding: 20px;
+    background-color: #9ff3fc;
+}
+
+nav label{
+    font-size: 28px;
+    
+}
+
+
+.container{
+    width : 60%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 20px 0;
+    justify-content: center;
+}
+
+.crd{
+    display: flex;
+    padding: 20px;
+    box-shadow: 3px 3px 8px 2px rgba(0, 0, 0, 0.2);
+    width : 90%;
+    border-radius: 10px;
+    align-items: flex-end;
+    margin-bottom: 20px;
+    align-items: flex-start;
+
+}
+
+.card{
+    margin: 10px;
+}
+
+.card-info{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.card-info label{
+    font-size: 20px;
+    justify-content: center;
+    margin-bottom: 5px;
+    font-family: sans-serif;
+}
+
+.crd img{
+    height:200px;
+    margin-right: 20px;
+    border-radius: 10px;
+}
+
+.crd button{
+    padding: 10px;
+    margin: 5px;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+
+}
+
+.accept{
+    background-color: green;
+}
+
+.reject {
+    background-color: red;
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.stats{
+    box-shadow: 3px 3px 8px 2px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+}
+
+.stats label{
+    margin-bottom: 3px;
+}
+
+.stats td{
+    padding: 10px;
+}
+
+
+.img-container{
+   
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.img-container > img{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    transition: 0.5s;
+}
+
+.img-container:hover > img{
+    border-radius: 0;
+    transition: 0.5s;
+}
+
+

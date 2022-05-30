@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "bson-objectid": "^2.0.3",
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "fast-two-sms": "^3.0.0",
+    "live-server": "^1.2.1",
+    "mongoose": "^6.2.7",
+    "nodemailer": "^6.7.3",
+    "passport": "^0.5.2",
+    "passport-local-mongoose": "^7.0.0"
+  },
+  "name": "gatepass",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

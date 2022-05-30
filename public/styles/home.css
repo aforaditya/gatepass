@@ -1,0 +1,215 @@
+*{
+    margin : 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.profile{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 30%;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile img{
+    height:  40%;
+    border-radius: 50%;
+}
+
+.profile label{
+    font-size: 48px;
+    font-family: sans-serif;
+    margin-top: 30px;
+}
+
+.no-passes-box{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   margin-top: 50px;
+}
+
+.no-passes-box h3{
+    font-family: sans-serif;
+    font-size: 40px;
+    width: 80%;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.cardbox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    width : 100%;
+   background: #f7ffff;
+   border-radius: 28px;
+   overflow: hidden;
+   box-shadow: 3px 3px 8px 2px rgba(0, 0, 0, 0.2);
+   margin-bottom: 60px;
+
+}
+
+.timerow{
+    display: flex;
+
+}
+
+.card-info{
+display: flex;
+flex-direction: column;
+ height: 60%; 
+width: 100%;
+justify-content: center;
+padding: 50px 30px ;
+
+font-family: Sarabun;
+
+}
+
+.card-info > * {
+    margin: 20px 10px;
+}
+
+.status{
+    background-color: #e8e117;
+    height: 40%;
+    
+}
+
+.date{
+    font-size: 32px;
+    font-family: sans-serif;
+}
+
+.location{
+    font-size: 48px;
+    margin-left: 10px;
+}
+
+.time{
+  font-weight: bold;
+}
+
+.time-text{
+    font-size: 56px;
+}
+
+.time-ampm{
+    font-size: 32px;
+    margin-left: 10px;
+}
+
+.status{
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    color: white;
+    font-family: Sarabun;
+    padding-left: 30px;
+    padding-right: 40px;
+    justify-content: space-between;
+    
+}
+
+.timerow{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.new-request-btn{
+    margin-top: 50px;
+    border: 2px solid black;
+    color: black;
+    font-size: 32px;
+    padding: 30px;
+    border-radius: 20px;
+    background-color: transparent;
+}
+
+
+.location-row{
+    display: flex;
+    align-items: center;
+}
+
+
+.logout {
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 7%;
+    color: red;
+}
+
+.logout input[type="submit"]{
+    font-size: 48px;
+    font-family: sans-serif;
+    margin-left: 10px;
+    color: red;
+    border: none;
+    background-color: transparent;
+}
+
+.button{
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: initial;
+    font-family: sans-serif;
+}
+
+.cardbox a {
+    all: unset;
+    width: 90%;
+  }
+
+
+.message{
+    width: auto;
+}
+
+.message p{
+    margin: auto;
+    width: auto;
+    font-size: 36px;
+    
+}
+
+.message-box{
+    background-color: aquamarine;
+}
+
+.msg-ok-btn{
+    background: aquamarine;
+    padding: 20px;
+    font-size: 32px;
+    margin-top: 30px;
+    border: 2px solid black;
+    width: 30%;
+    border-radius: 10px;
+    color: black;
+}

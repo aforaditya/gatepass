@@ -1,0 +1,110 @@
+*{
+    margin : 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+    font-family: sans-serif;
+}
+
+body{
+    height: 100vh;
+    width : 100vw;
+
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.circle{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 100px;
+    box-shadow: 3px 3px 8px 2px rgba(0, 0, 0, 0.2);
+}
+
+.circle a{
+    text-decoration: none;
+}
+
+.circle a:visited{
+    color: black;
+}
+
+.back-bar{
+    width: 100%;
+    height: 5%;
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+form{
+    box-shadow: 3px 3px 8px 2px rgba(0, 0, 0, 0.2);
+    border-radius : 20px;
+    padding : 50px 50px;
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    width: 70%;
+  }
+
+  form input, p , h3{
+      margin: 20px;
+  }
+
+  form h3{
+      font-size: 62px;
+  }
+
+  form p{
+      font-size: 48px;
+  }
+
+  input{
+      font-size: 48px;
+      padding: 35px;
+  }
+
+  @keyframes example {
+    from {
+        padding : 0px;
+        background: white;
+    }
+    to {
+        padding : 30px;
+        background: black;
+    }
+  }
+
+  button{
+      background: black;
+      border-radius: 10px;
+      color: white;
+      padding: 30px;
+      margin-top: 20px;
+      font-size: 46px;
+      border: none;
+      display: none;
+      animation-name: example;
+      animation-duration: 0.7s;
+  }
+
+  img{
+      height: 500px;
+      width: 500px;
+  }
+
+  label{
+      color: red;
+      font-size: 36px;
+      margin: auto;
+  }
