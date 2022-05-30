@@ -8,6 +8,7 @@ const app = express()
 const ObjectId = require('bson-objectid')
 var nodemailer = require('nodemailer');
 var sms = require('fast-two-sms')
+require('dotenv').config();
 
 // Local Time
 
