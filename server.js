@@ -451,7 +451,7 @@ function sendMail(email_address , otp, res , forgot){
         res.render('registerUser' , {msg : 'Error occured while sending OTP' , msg_code : 'danger'})
       } else {
         console.log('Email sent: ' + info.response);
-        res.render('registerUser' , {msg : 'User registered successfully. Password has been sent to CU mail id.' , msg_code : 'success'})
+        res.render('registerUser' , {msg : 'User registered successfully. Password has been sent to mail id.' , msg_code : 'success'})
       }
 
 
