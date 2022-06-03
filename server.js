@@ -51,6 +51,7 @@ const userSchema = mongoose.Schema({
     room : String,
     hostel : String,
     role  : String,
+    mail : String,
     passes : []
   })
 
@@ -478,6 +479,7 @@ app.post('/register' , (req,res)=>{
     image : 'pending',
     hostel : req.user.group,
     role : 'student',
+    mail : req.body.mail,
     passes : []
   }, password.toString().trim() , (err, user) => {
     if (err)
@@ -498,7 +500,7 @@ app.post('/register' , (req,res)=>{
        })
       profile.save()
 
-      sendMail(req.body.uid.toUpperCase()+'@cuchd.in' , password , res , false)
+      sendMail(req.body.mail , password , res , false)
     //  res.render('registerUser' , {msg : 'User registered successfully. Password sent on CU mail id : ', msg_code : 'success'})
 
      }})
@@ -994,10 +996,10 @@ app.get('/forgotPassword' , (req,res)=>{
 
 app.post('/forgotPassword' , (req,res)=>{
        
-       if(! (req.body.uid))
+       if(! (req.body.mail))
        res.redirect('/forgotPassword')
 
-       var mail_id = req.body.uid.toUpperCase()+'@cuchd.in'
+       var mail_id = req.body.mail
        var password = Math.floor((Math.random() * 1000000) ).toString()
        
        User.findOne({username : req.body.uid.toLowerCase()} , (err,doc)=>{
