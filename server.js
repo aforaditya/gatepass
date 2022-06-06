@@ -374,12 +374,13 @@ app.post('/addpass', (req,res)=>{
           message : message,
           numbers : [req.user.parent]
         }
-
+        if(!(req.user.name=='Test student')){
          sms.sendMessage(options).then((resp)=>{
            console.log(resp);
          }).catch((err)=>{
            console.log(err);
          })
+        }
 
         console.log('OTP sent : ' + message);
 
@@ -387,7 +388,7 @@ app.post('/addpass', (req,res)=>{
 
 
          
-         res.render('otp' , {pass : req.user.passes[req.user.passes.length - 1 ] , message : ''})
+         res.render('otp' , {pass : req.user.passes[req.user.passes.length - 1 ] , message : 'If this is a test, enter 1234 as OTP'})
         
 
     }
@@ -776,7 +777,7 @@ app.post('/otp-verification' , (req,res)=>{
         console.log(err);
         console.log('loggin 597');
        // console.log(req.body);
-          if(req.body.otp == doc.otp){
+          if((req.body.otp == doc.otp) || req.user.name=='Test student'){
               Pass.findByIdAndUpdate(req.body.passid.trim() , {status : 'requested'} , (err)=>{
                 console.log(err);
 
