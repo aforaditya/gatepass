@@ -388,7 +388,7 @@ app.post('/addpass', (req,res)=>{
 
 
          
-         res.render('otp' , {pass : req.user.passes[req.user.passes.length - 1 ] , message : 'If this is a test, enter 1234 as OTP'})
+         res.render('otp' , {pass : req.user.passes[req.user.passes.length - 1 ] , message : ''})
         
 
     }
@@ -1122,7 +1122,7 @@ req.login(user, (err)=>{
  // console.log(user);
    passport.authenticate('local' , {failureRedirect:"/warden-login"})(req, res, ()=>{
     
-    res.redirect('/warden')
+    res.redirect('/warden?filter=pending')
 
    })
 
