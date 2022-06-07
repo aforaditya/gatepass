@@ -1122,7 +1122,7 @@ req.login(user, (err)=>{
  // console.log(user);
    passport.authenticate('local' , {failureRedirect:"/warden-login"})(req, res, ()=>{
     
-    res.redirect('/warden?filter=pending')
+    res.redirect('/warden?filter=requested')
 
    })
 

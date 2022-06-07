@@ -4,27 +4,49 @@
     <meta name="viewport" content="user-scalable=0">
     <title>GatePass - Login</title>
     <link rel="stylesheet" href="styles/indexstyle.css">
+
+    <style>
+
+      
+         @media screen and (max-width: 1000px){
+           .screen_warn{
+             display: none;
+           }
+         }
+         
+    </style>
 </head>
 <body onload="showMessage()">
-  <% if(message) {%> 
-  <div class="message">Please enter valid username and password</div>
-  <% } %> 
 
-    <div class="container">
 
-        <form method="post" action="/login">
-            <img style="height: 250px;"  src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Chandigarh_University_Seal.png" alt="Logo">
-            <h3>Sign in</h3>
-            <p>Welcome back !  Sign in with your UID and password to continue</p>
-            <input type="text" name="username"  placeholder="Enter UID">
-            <input type="password" name="password"  placeholder="Enter Password">
-            <button type="submit">Sign in</button>
-            <a href="/forgotPassword">Forgot password?</a>
-        </form>
+  <div class="screen">
 
-        
+    <% if(message) {%> 
+      <div class="message">Please enter valid username and password</div>
+      <% } %> 
+    
+        <div class="container">
+    
+          <h3 class="screen_warn">Kindly view this page on a mobile device OR press Ctrl + Shift + i then select the mobile
+            icon present on the top left corner of the window to get a mobile view of this site
+          </h3>
+            <form method="post" action="/login">
+                <img style="height: 250px;"  src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Chandigarh_University_Seal.png" alt="Logo">
+                <h3>Sign in</h3>
+                <p>Welcome back !  Sign in with your UID and password to continue</p>
+                
+                <input type="text" name="username"  placeholder="Enter UID">
+                <input type="password" name="password"  placeholder="Enter Password">
+                <button type="submit">Sign in</button>
+                <a href="/forgotPassword">Forgot password?</a>
+            </form>
+    
+            
+    
+        </div>
 
-    </div>
+  </div>
+ 
   <script>
       function showMessage(){
         if ('scrollRestoration' in history) {
