@@ -44,7 +44,7 @@ This is how the dashboard looks like:
 
 ### The Android app for Guards [click to download](https://drive.google.com/file/d/17w5OjVFrWf2mEcgm-mlcr7HZcEyPydNK/view?usp=sharing) : 
 
-Built on (kodular.io)[https://kodular.io] (an MIT App Inventor based platform), this app serves as a gatepass/QR code scanner. The UI is very simple and easy to use. On scanning 
+Built on [kodular.io](https://kodular.io) (an MIT App Inventor based platform), this app serves as a gatepass/QR code scanner. The UI is very simple and easy to use. On scanning 
 the gatepass, the status is automatically updated.
 
 Test user credentials, Username : `testguard` Password : `14631528`
